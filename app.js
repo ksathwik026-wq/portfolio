@@ -2,24 +2,26 @@
 const database = {
     writing: [
         { 
-            id: "w1",
-            image: "images/your-image-name.jpg"
+            id: "w1", 
             title: "Quantum", 
             subtitle: "The Debut Feature Film", 
             type: "Screenplay", 
             info: "Action / Sci-Fi Romance", 
             pages: "118 Pages", 
+            image: "images/quantum-poster.jpg", // Grid card layout image
+            heroImage: "images/quantum-moodboard.jpg", // Detail header background image
             desc: "A commercial screenplay layout tracing complex emotional formulas through dynamic technical operations.", 
             script: "SCENE START\n\nINT. LAB HUB - NIGHT\n\nFading status arrays monitor code loops over gray structural blocks.\n\nSATHWIK stands tracking console matrices.\n\n                        SATHWIK\n            The baseline parameters align.\n            The scientific foundation holds.\n\nSCENE END" 
         },
         { 
             id: "w2", 
-            image: "images/your-image-name.jpg"    
             title: "Velocity Lock", 
             subtitle: "Pulse System Project", 
             type: "Screenplay", 
             info: "Psychological Thriller", 
             pages: "95 Pages", 
+            image: "images/velocity-poster.jpg",
+            heroImage: "images/velocity-moodboard.jpg",
             desc: "A structural countdown tracking stress tolerances across sealed containment spaces.", 
             script: "SCENE START\n\nINT. RUNWAY HUB - CONTINUOUS\n\nPower linkages decouple in sequence.\n\n                        PRINCE\n            We have four computational blocks left.\n\nSCENE END" 
         }
@@ -27,12 +29,13 @@ const database = {
     direction: [
         { 
             id: "d1", 
-            image: "images/your-image-name.jpg"
             title: "Quantum - Phase 1", 
             subtitle: "Director's Action Breakdown Document", 
             type: "Shooting Script", 
             info: "Production Strategy", 
             pages: "14 Sequence Setups", 
+            image: "images/quantum-direction.jpg",
+            heroImage: "images/direction-moodboard.jpg",
             desc: "Comprehensive visual planning system pairing physical action blocks with romantic script depth layers.", 
             script: "SEQUENCE 1 - SYSTEM ENGAGEMENT\n\nCamera Movement: Jib down through grid framework elements down to floor coordinate limits.\nLens Selection: 35mm wide optic for landscape immersion capture.\nDirector Note: Keep background color configurations muted until characters activate parameters." 
         }
@@ -40,12 +43,13 @@ const database = {
     editing: [
         { 
             id: "e1", 
-            image: "images/your-image-name.jpg"
             title: "Timeline Core 4", 
             subtitle: "Technical Post-Production Script Structure", 
             type: "Lined Script", 
             info: "Editor Continuity Record", 
             pages: "8 Reference Pages", 
+            image: "images/timeline-editing.jpg",
+            heroImage: "images/editing-moodboard.jpg",
             desc: "Special post-production log data detailing audio cross-fade coordinates and sync tracking logic across structural narrative edits.", 
             script: "SCENE 14 - SPLIT TRANSITIONS\n\n- Cut on movement at Frame Index 142 during action sequences.\n- Audio Design: Modulate dark synthesizer background sweep across scene transitions.\n- Editor Priority: Protect focal point continuity parameters across visual adjustments." 
         }
@@ -76,6 +80,12 @@ document.addEventListener("DOMContentLoaded", () => {
             link.classList.add("active");
             const target = link.getAttribute("data-target");
             document.getElementById(`page-${target}`).classList.add("active");
+            
+            // Auto-return to grid screen if user clicks Portfolio in navigation link
+            if(target === "home") {
+                pageDetail.classList.remove("active");
+                pageHome.classList.add("active");
+            }
         });
     });
 
@@ -89,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-       // Interface Grid Block Generator with Live Image Support
+    // Interface Grid Block Generator with Live Image Support
     function renderGrid() {
         projectGrid.innerHTML = "";
         const items = database[currentPillar] || [];
@@ -98,9 +108,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const card = document.createElement("div");
             card.className = "card";
             
-            // Check if project has an image assigned, otherwise use the text design
+            // Render user image if path exists, fallback to minimalist text block if missing
             const posterContent = item.image 
-                ? `<img src="${item.image}" alt="${item.title} Poster" class="poster-image-file">`
+                ? `<img src="${item.image}" alt="${item.title} Poster" class="poster-image-file" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'poster-title\'>${item.title}</div><div class=\'poster-type\'>${item.type}</div>';">`
                 : `<div class="poster-title">${item.title}</div><div class="poster-type">${item.type}</div>`;
 
             card.innerHTML = `
@@ -115,13 +125,16 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Detail Component Builder System
+    // Detail Component Builder System with Dynamic Hero Backgrounds
     function loadProjectDetail(item) {
         pageHome.classList.remove("active");
         pageDetail.classList.add("active");
 
+        // Prepare background hero path if available
+        const heroBgStyle = item.heroImage ? `style="background-image: url('${item.heroImage}');"` : "";
+
         detailContent.innerHTML = `
-            <div class="hero-header">
+            <div class="hero-header" ${heroBgStyle}>
                 <div class="hero-text">
                     <h2>${item.title}</h2>
                     <p>${item.subtitle}</p>
