@@ -106,6 +106,18 @@ Kabir points defensively.
 Rhea laughs softly.`
 }
 
+        { 
+            id: "w2", 
+            title: "Velocity Lock", 
+            subtitle: "Pulse System Project", 
+            type: "Screenplay", 
+            info: "Psychological Thriller", 
+            pages: "95 Pages", 
+            image: "images/velocity-poster.jpg",
+            heroImage: "images/velocity-moodboard.jpg",
+            desc: "A structural countdown tracking stress tolerances across sealed containment spaces.", 
+            script: "SCENE START\n\nINT. RUNWAY HUB - CONTINUOUS\n\nPower linkages decouple in sequence.\n\n                        PRINCE\n            We have four computational blocks left.\n\nSCENE END" 
+        }
     ],
     direction: [
         { 
@@ -115,6 +127,8 @@ Rhea laughs softly.`
             type: "Shooting Script", 
             info: "Production Strategy", 
             pages: "14 Sequence Setups", 
+            image: "images/quantum-direction.jpg",
+            heroImage: "images/direction-moodboard.jpg",
             desc: "Comprehensive visual planning system pairing physical action blocks with romantic script depth layers.", 
             script: "SEQUENCE 1 - SYSTEM ENGAGEMENT\n\nCamera Movement: Jib down through grid framework elements down to floor coordinate limits.\nLens Selection: 35mm wide optic for landscape immersion capture.\nDirector Note: Keep background color configurations muted until characters activate parameters." 
         }
@@ -127,6 +141,8 @@ Rhea laughs softly.`
             type: "Lined Script", 
             info: "Editor Continuity Record", 
             pages: "8 Reference Pages", 
+            image: "images/timeline-editing.jpg",
+            heroImage: "images/editing-moodboard.jpg",
             desc: "Special post-production log data detailing audio cross-fade coordinates and sync tracking logic across structural narrative edits.", 
             script: "SCENE 14 - SPLIT TRANSITIONS\n\n- Cut on movement at Frame Index 142 during action sequences.\n- Audio Design: Modulate dark synthesizer background sweep across scene transitions.\n- Editor Priority: Protect focal point continuity parameters across visual adjustments." 
         }
@@ -157,6 +173,12 @@ document.addEventListener("DOMContentLoaded", () => {
             link.classList.add("active");
             const target = link.getAttribute("data-target");
             document.getElementById(`page-${target}`).classList.add("active");
+            
+            // Auto-return to grid screen if user clicks Portfolio in navigation link
+            if(target === "home") {
+                pageDetail.classList.remove("active");
+                pageHome.classList.add("active");
+            }
         });
     });
 
@@ -170,7 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Interface Grid Block Generator
+    // Interface Grid Block Generator with Live Image Support
     function renderGrid() {
         projectGrid.innerHTML = "";
         const items = database[currentPillar] || [];
@@ -178,10 +200,15 @@ document.addEventListener("DOMContentLoaded", () => {
         items.forEach(item => {
             const card = document.createElement("div");
             card.className = "card";
+            
+            // Render user image if path exists, fallback to minimalist text block if missing
+            const posterContent = item.image 
+                ? `<img src="${item.image}" alt="${item.title} Poster" class="poster-image-file" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'poster-title\'>${item.title}</div><div class=\'poster-type\'>${item.type}</div>';">`
+                : `<div class="poster-title">${item.title}</div><div class="poster-type">${item.type}</div>`;
+
             card.innerHTML = `
                 <div class="poster-frame">
-                    <div class="poster-title">${item.title}</div>
-                    <div class="poster-type">${item.type}</div>
+                    ${posterContent}
                 </div>
                 <div class="meta-title">${item.title}</div>
                 <div class="meta-info">${item.info}</div>
@@ -191,13 +218,16 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Detail Component Builder System
+    // Detail Component Builder System with Dynamic Hero Backgrounds
     function loadProjectDetail(item) {
         pageHome.classList.remove("active");
         pageDetail.classList.add("active");
 
+        // Prepare background hero path if available
+        const heroBgStyle = item.heroImage ? `style="background-image: url('${item.heroImage}');"` : "";
+
         detailContent.innerHTML = `
-            <div class="hero-header">
+            <div class="hero-header" ${heroBgStyle}>
                 <div class="hero-text">
                     <h2>${item.title}</h2>
                     <p>${item.subtitle}</p>
