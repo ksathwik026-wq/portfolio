@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kancharla Sathwik Prince (Prince S) | Writer-Director-Editor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <header>
+        <div class="logo-area">
+            <h1>PRINCE S</h1>
+            <p>WRITER • DIRECTOR • EDITOR</p>
+        </div>
+        <nav>
+            <a href="#" class="nav-link active" data-target="home">Portfolio</a>
+            <a href="#" class="nav-link" data-target="about">About Me</a>
+            <a href="#" class="nav-link" data-target="news">Latest News</a>
+            <a href="#" class="nav-link" data-target="contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Main Content Container -->
+    <main id="app-content">
+        
+        <!-- 1. Portfolio Grid Section -->
+        <section id="page-home" class="page-view active">
+            <div class="pillar-nav">
+                <button class="pillar-btn active" data-pillar="writing">1. Screenplays</button>
+                <button class="pillar-btn" data-pillar="direction">2. Shooting Scripts</button>
+                <button class="pillar-btn" data-pillar="editing">3. Lined Scripts</button>
+            </div>
+            <div id="project-grid" class="grid-container"></div>
+        </section>
+
+        <!-- 2. Dynamic Project Script Viewer Detail Section -->
+        <section id="page-detail" class="page-view">
+            <button class="back-btn" id="back-to-portfolio">← Back to Portfolio</button>
+            <div id="detail-content"></div>
+        </section>
+
+        <!-- 3. About Me Section -->
+        <section id="page-about" class="page-view">
+            <div class="about-container">
+                <div class="about-photo">
+                    <div class="candid-placeholder">
+                        <span>[ Candid On-Set Photo: Prince S ]</span>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h2>Kancharla Sathwik Prince <span class="aka">(a.k.a. Prince S)</span></h2>
+                    <h3>Writer-Director-Editor</h3>
+                    <p class="location">Based in Guntur</p>
+                    <p class="philosophy"><em>"Mass commercials includes love and relationships in scientific way."</em></p>
+                    <p>Driven by the creative instincts of a Polymath, I balance structural rigor with high-concept cinematic world-building. Currently pursuing my B.Tech in Computer Science Engineering (I-II) at NRI INSTITUTE OF TECHNOLOGY in Guntur (Autonomous).</p>
+                    <p>My work spans across genres, actively fusing action, adventure, romance, comedy, and psychological thriller elements into commercial narratives built on logical foundations.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Latest News Section (Social Media style Feed) -->
+        <section id="page-news" class="page-view">
+            <h2>Latest News Feed</h2>
+            <div class="feed-container">
+                <div class="feed-card alert-post">
+                    <div class="feed-header">
+                        <span class="feed-tag tag-work">Work in Progress</span>
+                        <span class="feed-date">May 2026</span>
+                    </div>
+                    <h3>Project: "Quantum"</h3>
+                    <p class="feed-body">"Wait for debut work."</p>
+                </div>
+                <div class="feed-card">
+                    <div class="feed-header">
+                        <span class="feed-tag tag-set">On-Set Updates</span>
+                        <span class="feed-date">April 2026</span>
+                    </div>
+                    <p class="feed-body">Pre-production mapping finalized for upcoming industrial treatment sequences.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Contact Section -->
+        <section id="page-contact" class="page-view">
+            <div class="contact-box">
+                <h2>Inquiries & Collaborations</h2>
+                <form id="portfolio-contact-form">
+                    <div class="form-group">
+                        <label for="form-name">Name</label>
+                        <input type="text" id="form-name" required placeholder="Your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="form-email">Email</label>
+                        <input type="email" id="form-email" required placeholder="your.email@domain.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="form-type">Inquiry Type</label>
+                        <select id="form-type" required>
+                            <option value="" disabled selected>Select option</option>
+                            <option value="representation">Representation</option>
+                            <option value="request">Script Request</option>
+                            <option value="collaboration">Collaboration</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="form-message">Message</label>
+                        <textarea id="form-message" rows="6" required placeholder="Type your message here..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+                <div id="form-status"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Global Footer -->
+    <footer>
+        <p>© 2026 Kancharla Sathwik Prince. All rights reserved.</p>
+        <div class="social-links">
+            <a href="instagram.com" target="_blank" rel="noopener">Instagram (@sathwikkancharla89)</a>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
