@@ -2,7 +2,8 @@
 const database = {
     writing: [
         { 
-            id: "w1", 
+            id: "w1",
+            image: "images/your-image-name.jpg"
             title: "Quantum", 
             subtitle: "The Debut Feature Film", 
             type: "Screenplay", 
@@ -13,6 +14,7 @@ const database = {
         },
         { 
             id: "w2", 
+            image: "images/your-image-name.jpg"    
             title: "Velocity Lock", 
             subtitle: "Pulse System Project", 
             type: "Screenplay", 
@@ -25,6 +27,7 @@ const database = {
     direction: [
         { 
             id: "d1", 
+            image: "images/your-image-name.jpg"
             title: "Quantum - Phase 1", 
             subtitle: "Director's Action Breakdown Document", 
             type: "Shooting Script", 
@@ -37,6 +40,7 @@ const database = {
     editing: [
         { 
             id: "e1", 
+            image: "images/your-image-name.jpg"
             title: "Timeline Core 4", 
             subtitle: "Technical Post-Production Script Structure", 
             type: "Lined Script", 
