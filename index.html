@@ -45,11 +45,11 @@
         <section id="page-about" class="page-view">
             <div class="about-container">
                 <div class="about-photo">
-                    <div class="about-photo">
-    <!-- Replace the placeholder box with your actual uploaded image -->
-    <img src="images/headshot.jpg" alt="Prince S on set" style="width:100%; height:auto; border:1px solid var(--border-color);">
-</div>
-
+                    <!-- Pointing directly to your images folder for a real profile picture -->
+                    <img src="images/headshot.jpg" alt="Prince S on set" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" class="profile-img">
+                    <div class="candid-placeholder" style="display:none;">
+                        <span>[ Place 'headshot.jpg' inside images/ folder ]</span>
+                    </div>
                 </div>
                 <div class="about-text">
                     <h2>Kancharla Sathwik Prince <span class="aka">(a.k.a. Prince S)</span></h2>
