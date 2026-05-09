@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Interface Grid Block Generator
+       // Interface Grid Block Generator with Live Image Support
     function renderGrid() {
         projectGrid.innerHTML = "";
         const items = database[currentPillar] || [];
@@ -97,10 +97,15 @@ document.addEventListener("DOMContentLoaded", () => {
         items.forEach(item => {
             const card = document.createElement("div");
             card.className = "card";
+            
+            // Check if project has an image assigned, otherwise use the text design
+            const posterContent = item.image 
+                ? `<img src="${item.image}" alt="${item.title} Poster" class="poster-image-file">`
+                : `<div class="poster-title">${item.title}</div><div class="poster-type">${item.type}</div>`;
+
             card.innerHTML = `
                 <div class="poster-frame">
-                    <div class="poster-title">${item.title}</div>
-                    <div class="poster-type">${item.type}</div>
+                    ${posterContent}
                 </div>
                 <div class="meta-title">${item.title}</div>
                 <div class="meta-info">${item.info}</div>
