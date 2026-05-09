@@ -134,6 +134,15 @@ main {
     padding: 20px;
     text-align: center;
     margin-bottom: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.poster-image-file {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .poster-title {
@@ -183,15 +192,15 @@ main {
     text-align: center;
     padding: 20px;
     margin-bottom: 40px;
+    background-size: cover;
+    background-position: center;
 }
 
-/* Large Hero Mood Board Background Element */
 .hero-header::before {
     content: "";
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('data:image/svg+xml;utf8,<svg xmlns="w3.org" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23333"/><circle cx="50" cy="50" r="40" fill="%23444" opacity="0.3"/></svg>');
-    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.65);
     z-index: 1;
 }
 
@@ -247,6 +256,13 @@ main {
     flex: 1;
 }
 
+.profile-img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--border-color);
+    display: block;
+}
+
 .candid-placeholder {
     width: 100%;
     height: 400px;
@@ -257,6 +273,8 @@ main {
     align-items: center;
     color: var(--accent-color);
     font-size: 0.9rem;
+    text-align: center;
+    padding: 20px;
 }
 
 .about-text {
@@ -326,16 +344,4 @@ footer a { color: var(--accent-color); text-decoration: none; }
     nav a { margin-left: 0; margin-right: 20px; }
     .about-container { flex-direction: column; }
     .script-viewer { padding: 40px 20px; font-size: 0.85rem; }
-}
-/* Poster Image Styling Rule */
-.poster-frame {
-    overflow: hidden; /* Keeps images from spilling outside borders */
-    position: relative;
-}
-
-.poster-image-file {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Crops image cleanly to fit the 2:3 cinematic frame ratio */
-    display: block;
 }
