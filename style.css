@@ -327,3 +327,15 @@ footer a { color: var(--accent-color); text-decoration: none; }
     .about-container { flex-direction: column; }
     .script-viewer { padding: 40px 20px; font-size: 0.85rem; }
 }
+/* Poster Image Styling Rule */
+.poster-frame {
+    overflow: hidden; /* Keeps images from spilling outside borders */
+    position: relative;
+}
+
+.poster-image-file {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crops image cleanly to fit the 2:3 cinematic frame ratio */
+    display: block;
+}
